@@ -1,0 +1,68 @@
+MephistoSeventyTwoPhotos v0.1
+========================
+
+Provides the ability to display a user's 72photos Photo Feed (RSS 2.0) inside a Liquid template. Completely Customizable.
+
+Basic Usage:
+
+	{{ "http://72photos.com/feeds/user/<your-72photos-username>/photos.rss?num=6" | get_photos }}
+	
+		- This will display 6 of your latest photos with a default style applied.
+
+Additional Options:
+
+	{{ "http://72photos.com/feeds/user/<your-72photos-username>/photos.rss?num=6" | get_photos, "<size>", "<use-default-styles>", "border-color", "hover-color" }}
+	
+    	- sizes: s, m, or l (small, medium or large)
+		- use-default-styles: true or false	(when set to "false" you can specify your own CSS styles using the predefined classes, see "Custom CSS Hooks")
+		- border-color: Any hex code (ex: #CCCCCC)
+		- hover-color: Any hex code (ex: #CCCCCC)
+
+Advanced Usage:
+
+   {{ "http://72photos.com/feeds/user/<your-72photos-username>/photos.rss?num=6" | get_photos, "s", "true", "#CCCCCC", "#CCCCCC" }}
+		- Will display 5 of your latest photos in small thumbnails with a border color of #CCCCCC and a hover color of #CCCCCC.
+
+   {{ "http://72photos.com/feeds/user/<your-72photos-username>/photos.rss?num=6" | get_photos, "s", "false"}}
+		- Will display 5 of your latest photos in small thumbnails unstyled (use the CSS hooks below to style yourself)
+		
+
+Custom CSS Hooks:
+
+	div.seventy_two_photos a img{
+		float:left;
+		width: 60px;
+		height: 60px;
+		margin-right: 10px;
+		margin-top: 10px;
+		border: 1px solid #CCCCCC;
+		padding: 3px;
+	}
+	div.seventy_two_photos a:hover img{
+		background: #CCCCCC;
+	}
+	
+
+Example Feed URLs:
+
+	Change the "num" variable at the end of your feed url to specify how many photos to display. Add the tags variable to specify what photos to display.
+
+	http://72photos.com/feeds/user/<your-72photos-username>/photos.rss?num=10
+		- Will select 10 of your latest photos
+
+	http://72photos.com/feeds/user/<your-72photos-username>/photos.rss?tags=trees,clouds,water
+		- Will only select photos tagged with trees, clouds and water
+
+
+Update Notes
+============
+2008-6-10: v0.1 Initial release.
+
+
+Developer Notes
+============
+
+Developer: Eric A. 
+Email: eric@xmgnetworks.com
+Blog; http://from.two2twelve.com
+URL: http://72photos.com 

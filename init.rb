@@ -1,0 +1,2 @@
+require 'mephisto_seventy_two_photos'
+Liquid::Template.register_filter SeventyTwoPhotos
